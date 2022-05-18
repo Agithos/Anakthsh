@@ -1,0 +1,236 @@
+body {
+ margin: 0; 
+}
+
+.banner {
+    min-height: 2rem;
+}
+.container {
+    width: 100vw;
+    height: 99vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: moveUp 1s;
+}
+
+.justStart {
+    justify-content: start;
+}
+
+#mainCard {
+    z-index: 1;
+}
+.title {
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Segoe UI";
+    font-size: 100%;
+    font-weight: 10;
+}
+
+.animateDown {
+    animation: moveDown 1s;
+}
+
+.animateDownRev {
+    animation: moveDown 0.4s reverse;
+    animation-fill-mode: forwards;
+}
+
+.ordList li {
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 90%;
+    cursor: pointer;
+}
+
+.ordList li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 1px rgb(0 0 0 / 3%);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 30px;
+    padding-bottom: 20px;
+    
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: 0 10px 15px rgba(0,0,0,.2);
+    transition: .5s
+}
+
+.side {
+    width: 20vw;
+}
+
+.closed {
+    opacity: 0;
+    position: fixed;
+    top:95vh;
+    left: 58%;
+    border-radius: 50%;
+    border: 0.5px solid  rgba(0,0,0,.1) ;
+    background-color: rgb(255, 255, 255);
+    visibility: hidden;
+    cursor: pointer;
+    z-index: 1;
+}
+.closed:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 5px 3px rgb(0 0 0 / 10%);
+}
+
+.activated {
+    flex:1;
+    transform: translate(-40vw)
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+}
+
+.textbox {
+    resize: none;
+    overflow: auto;
+    transition: transform .2s;      /*width 1s*/
+}
+.textbox:focus{
+    width: 200%;
+    transform: translatey(-300%);
+}
+/* sidee textbox focus xoris to transform */
+.side .textbox:focus {
+    transform: none;
+    width: 100%;
+}
+
+.radios {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
+.elasticOption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 10px;
+    font-size: 80%;
+    text-transform: uppercase;
+}
+
+.submit {
+    background-color: white;
+    border-color: rgb(129, 69, 27);
+    border-width: 1px;
+    border-radius: 5px;
+}
+.submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 5px rgba(0,0,0,.1);
+}
+.results {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -100%;
+    margin-top: 2rem;
+    animation: none;
+}
+
+.results_banner {
+    min-height: 2rem;
+    width: 100%;
+    /* background-color: rgba(218, 95, 77, 0.21); */
+    border: 1px solid #ecdddd;
+    border-radius: 5px;
+    box-shadow: 3px 4px 3px rgb(0 0 0 / 4%);
+    margin-bottom: 1rem;
+    color: rgb(170,138,138);
+    padding: 0.5rem;
+}
+
+.results_banner-title {
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+.results_banner-info {
+    display: flex;
+    justify-content: space-evenly;
+}
+.results_banner-info p {
+    margin: 0;
+    font-size: 85%;
+    /* color: white; */
+}
+/* .results_banner-info p::after {
+    content: "|";
+} */
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.results.visible {
+    left: 50%;
+    transform: translate(-30%);
+}
+
+/* .loading {
+
+} */
+
+.animateUp{
+    animation: moveUpResult 1s;
+}
+
+@keyframes moveDown {
+    from{
+        opacity: 0;
+        transform: translateX(-50%) translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes moveUp {
+    from{
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveUpResult {
+    from{
+        opacity: 0;
+        transform: translate(-30%) translateY(100vh);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-30%) translateY(0);
+    }
+}
