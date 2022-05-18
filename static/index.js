@@ -10,6 +10,7 @@ const closeButton = document.querySelector(".closed");
 const results = document.querySelector(".results");
 const queryBox = document.querySelector(".textbox");
 const container = document.querySelector(".container");
+const isElastic = document.querySelector("form").isElastic;
 // const ordList = document.querySelector(".ordList")
 
 const textnode = document.createTextNode("Loading...");
@@ -62,7 +63,8 @@ let onClickLiHandler = (event) => {
 }
 
 let doFetch = () => {
-    query = "/" + queryBox.value
+    console.log(isElastic.value);
+    query = "/" + isElastic.value + queryBox.value;
     fetch(query)
         .then(response => {
             // vazei loading append
