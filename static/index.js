@@ -57,7 +57,7 @@ let liquidateData = (data, index) => {
 }
 
 let onClickLiHandler = (event) => {
-    index = event.target.name;
+    let index = event.target.name;
     // results.innerHTML = answers[index].meta.answer;
     liquidateData(answers, index);
 
@@ -68,7 +68,8 @@ let onClickLiHandler = (event) => {
 
 let doFetch = () => {
     console.log(isElastic.value);
-    query = "/" + isElastic.value + queryBox.value;
+    let encodedQuery = encodeURIComponent(queryBox.value);
+    let query = "/" + isElastic.value + encodedQuery;
     fetch(query)
         .then(response => {
             // vazei loading append
