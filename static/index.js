@@ -1,6 +1,5 @@
 // TODO
     //1. Fonts vrisko gia Ellhnika
-    //2. Banner - title
     
 
 const card = document.querySelector("#mainCard");
@@ -11,7 +10,6 @@ const results = document.querySelector(".results");
 const queryBox = document.querySelector(".textbox");
 const container = document.querySelector(".container");
 const isElastic = document.querySelector("form").isElastic;
-// const ordList = document.querySelector(".ordList")
 
 const textnode = document.createTextNode("Loading...");
 const dataNode = document.createElement("p");
@@ -28,6 +26,12 @@ ordList.classList.add("ordList");
 let answers;
 
 let liquidateData = (data, index) => {
+    if (data.answerList.length == 0){
+        console.log("No data");
+        results.innerHTML = "No document found !";
+        banner.innerHTML = "";
+        return;
+    }
     results.innerHTML = data.answerList[index].meta.answer;
     banner.classList.add("results_banner");
     bannerTitle.innerHTML = "QA Theme : " + data.answerList[index].meta.title;
@@ -45,7 +49,7 @@ let liquidateData = (data, index) => {
     //score
     if (data.answerList[index].score){
         let score = document.createElement("p");
-        score.innerHTML = "SCORE : " + data.answerList[0].score.toFixed(3);
+        score.innerHTML = "SCORE : " + data.answerList[index].score.toFixed(3);
         bannerInfo.appendChild(score);
     }
     banner.appendChild(bannerInfo);
@@ -75,7 +79,6 @@ let doFetch = () => {
         })
         .then(data => {
             // svhnei to loading kai kanei append ta data
-            console.log(data);
             container.classList.add("justStart");
 
             //liquidateData
