@@ -13,7 +13,7 @@
 * `Ctrl+F9` (Run All cells)
 * `Copy-paste` σε Browser το URL του ngrok web-server
   * Αυτό που γράφει δηλαδή `Running on *****.ngrok.io`
-> Σε Chrome χρειάζεται να χρήση σε _Private mode_. Αλλιώς, χρήση Mozilla
+> Σε Chrome χρειάζεται λειτουργία σε _Private mode_. Αλλιώς, χρήση Mozilla
 ---
 ### Επιλογές συγκεκριμένης λύσης
 * Ανακτώ από τα πρώτα 60 links για οικονομία χρόνου.  (δηλαδή με `anakthsh(links,60)` )
